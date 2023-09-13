@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Логін</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	<header>
+        <h1>Форма входу</h1>
+        <nav>
+            <ul>
+                <li><a href="achievement.html">Досягнення</a></li>
+                <li><a href="test.html">Тест</a></li>
+                <li><a href="news.html">Новини</a></li>
+            </ul>
+        </nav>
+    </header>
+      
+    <form action="#" method="post">
+        <label for="email">Електронна пошта:</label>
+        <input type="email" id="email" name="email" required placeholder="Введіть свою пошту">
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required placeholder="Введіть пароль">
+        <span id="password-hint">Мінімальна кількість символів: 8</span>
+        <br>
+        <button type="button" id="clear-button">Очистити</button>
+        <button type="submit" id="submit-button">Увійти</button>
+    </form>
+    
+    <script>
+        const passwordInput = document.getElementById('password');
+        const passwordHint = document.getElementById('password-hint');
+
+        passwordInput.addEventListener('input', function () {
+            const password = passwordInput.value;
+            if (password.length < 8) {
+                passwordHint.textContent = 'Мінімальна кількість символів: 8';
+            } else {
+                passwordHint.textContent = '';
+            }
+        });
+
+        const clearButton = document.getElementById('clear-button');
+        clearButton.addEventListener('click', function () {
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+        });
+    </script>
+  </body>
+</html>
